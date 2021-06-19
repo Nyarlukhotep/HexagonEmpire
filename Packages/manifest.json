@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "com.leopotam.ecs": "https://github.com/Leopotam/ecs.git",
+    "com.leopotam.ecs-types": "https://github.com/Leopotam/ecs-types.git",
+    "com.leopotam.ecs-ui": "https://github.com/Leopotam/ecs-ui.git",
+    "com.leopotam.ecs-unityintegration": "https://github.com/Leopotam/ecs-unityintegration.git",
     "com.unity.2d.animation": "3.2.5",
     "com.unity.2d.pixel-perfect": "2.0.4",
     "com.unity.2d.psdimporter": "2.1.6",
