@@ -1,3 +1,4 @@
+using Client.Scripts.Components;
 using Client.Scripts.Data;
 using Client.Scripts.Systems;
 using Client.Scripts.UnityComponents;
@@ -41,21 +42,18 @@ namespace Client
 #endif
 			
 			systems
+				.Add(new SaveLoadDataSystem())
 				.Add(inputSystems)
 				.Add(guiSystems)
 				.Add(new GameTileCreateHandleSystem())
 				.Add(new RewardHandleSystem())
-				// register your systems here, for example:
-				// .Add (new TestSystem1 ())
-				// .Add (new TestSystem2 ())
+				.Add(new UpdatePlayerDataSystem())
 
 				// register one-frame components (order is important), for example:
-				// .OneFrame<TestComponent1> ()
-				// .OneFrame<TestComponent2> ()
+				.OneFrame<SaveDataComponent>()
+				.OneFrame<UpdatePlayerDataComponent>()
 
 				// inject service instances here (order doesn't important), for example:
-				// .Inject (new CameraService ())
-				// .Inject (new NavMeshSupport ())
 				.Inject(sceneData)
 				.Inject(gameSettings)
 				

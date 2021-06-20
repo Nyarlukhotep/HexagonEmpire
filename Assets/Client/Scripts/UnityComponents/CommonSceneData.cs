@@ -8,9 +8,13 @@ namespace Client.Scripts.UnityComponents
 		private Camera mainCamera;
 		[SerializeField] 
 		private PopupText popupTextPrefab;
+		[SerializeField] 
+		private PlayerDataView playerDataView;
 
 		public Camera Camera => mainCamera;
 
 		public PopupText PopupTextPrefab => popupTextPrefab;
+
+		public PlayerDataView PlayerDataView => playerDataView;
 	}
 }
