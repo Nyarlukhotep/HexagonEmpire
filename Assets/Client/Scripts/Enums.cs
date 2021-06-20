@@ -15,6 +15,12 @@
 		Stone
 	}
 
+	public enum TileState
+	{
+		Closed,
+		Open
+	}
+	
 	public enum RewardType
 	{
 		Gold,

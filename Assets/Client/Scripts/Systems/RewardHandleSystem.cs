@@ -1,4 +1,5 @@
 ﻿using Client.Scripts.Components;
+using Client.Scripts.Systems.DataStorageSystem;
 using Client.Scripts.UnityComponents;
 using Lean.Pool;
 using Leopotam.Ecs;
@@ -12,6 +13,7 @@ namespace Client.Scripts.Systems
 		
 		private EcsWorld world;
 		private EcsFilter<TileDataComponent> tileDataFilter;
+		private EcsFilter<DataComponent<PlayerDataComponent>> playerDataFilter;
 		
 		public void Run()
 		{
@@ -28,6 +30,14 @@ namespace Client.Scripts.Systems
 
 				var popupText = LeanPool.Spawn(sceneData.PopupTextPrefab);
 				popupText.Init(tileComponent.tile.transform.position, $"+{tileComponent.tile.Data.Reward.Amount}");
+
+				foreach (var idx2 in playerDataFilter)
+				{
+					ref var playerData = ref playerDataFilter.Get1(idx2);
+					playerData.Data.currency += tileComponent.tile.Data.Reward.Amount;
+
+					world.NewEntity().Get<UpdatePlayerDataComponent>();
+				}
 			}
 		}
 	}
