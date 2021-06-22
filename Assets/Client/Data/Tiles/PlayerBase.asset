@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17d41924b4214de3a2f8be59e8ecf5d2, type: 3}
-  m_Name: Stone
+  m_Name: PlayerBase
   m_EditorClassIdentifier: 
-  type: 3
-  prefab: {fileID: 1262788137121933458, guid: 6893c27d02a380c4d990d6ed141dedca, type: 3}
-  cost: 30
+  type: 1
+  prefab: {fileID: -8465193035757358691, guid: c456f76a07d7be244a8a54fb8e31f170, type: 3}
+  cost: 0
   reward:
-    amount: 3
+    amount: 1
     type: 0
-    interval: 15
+    interval: 5

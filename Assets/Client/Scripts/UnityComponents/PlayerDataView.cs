@@ -1,4 +1,5 @@
 ﻿using Client.Scripts.Components;
+using Client.Scripts.Systems.DataStorageSystem;
 using TMPro;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Client.Scripts.UnityComponents
 	{
 		[SerializeField] private TextMeshProUGUI currencyText;
 
-		public void UpdateData(PlayerDataComponent data)
+		public void UpdateData(PlayerData data)
 		{
 			currencyText.SetText(data.currency.ToString());
 		}

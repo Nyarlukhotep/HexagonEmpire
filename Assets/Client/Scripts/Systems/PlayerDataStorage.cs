@@ -3,11 +3,11 @@ using Client.Scripts.Systems.DataStorageSystem;
 
 namespace Client.Scripts.Systems
 {
-	public class PlayerDataStorage : DataStorage<PlayerDataComponent>
+	public class PlayerDataStorage : DataStorage<PlayerData>
 	{
 		public PlayerDataStorage()
 		{
-			Data = Load<PlayerDataComponent>(new FileSaveLoadProvider());
+			Data = Load<PlayerData>(new FileSaveLoadProvider());
 		}
 	}
 }

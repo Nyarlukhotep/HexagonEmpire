@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Client.Scripts.Systems
 {
-	public class StandaloneInputSystem : IEcsRunSystem
+	public class StandaloneMouseInputSystem : IEcsRunSystem
 	{
 		private CommonSceneData sceneData;
 		
@@ -30,9 +30,9 @@ namespace Client.Scripts.Systems
 				entity.Destroy();
 			}
 
-			CheckMouseInput(Input.GetMouseButtonUp(0), InputPhase.UP);
-			CheckMouseInput(Input.GetMouseButtonDown(0), InputPhase.DOWN);
 			CheckMouseInput(Input.GetMouseButton(0), InputPhase.PRESS);
+			CheckMouseInput(Input.GetMouseButtonDown(0), InputPhase.DOWN);
+			CheckMouseInput(Input.GetMouseButtonUp(0), InputPhase.UP);
 		}
 
 		private void CheckMouseInput(bool condition, InputPhase phase)

@@ -11,7 +11,8 @@
 	public enum TileContentType
 	{
 		Default,
-		Wood,
+		PlayerBase,
+		Forest,
 		Stone
 	}
 

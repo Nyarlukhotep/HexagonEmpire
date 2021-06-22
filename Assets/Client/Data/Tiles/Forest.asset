@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17d41924b4214de3a2f8be59e8ecf5d2, type: 3}
-  m_Name: Wood
+  m_Name: Forest
   m_EditorClassIdentifier: 
-  type: 1
-  prefab: {fileID: 1958913142390934234, guid: 650ca22dc9ab26f44a97d79aaa48997f, type: 3}
+  type: 2
+  prefab: {fileID: 8261932905041134065, guid: 650ca22dc9ab26f44a97d79aaa48997f, type: 3}
   cost: 20
   reward:
     amount: 2
     type: 0
-    rewardInterval: 8
+    interval: 8

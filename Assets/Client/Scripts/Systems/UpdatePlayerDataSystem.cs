@@ -11,7 +11,7 @@ namespace Client.Scripts.Systems
 		
 		private EcsWorld world;
 		private EcsFilter<UpdatePlayerDataComponent> updateDataFilter;
-		private EcsFilter<DataComponent<PlayerDataComponent>> playerDataFilter;
+		private EcsFilter<DataComponent<PlayerData>> playerDataFilter;
 		
 		public void Run()
 		{

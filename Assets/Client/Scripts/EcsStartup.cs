@@ -2,7 +2,6 @@ using Client.Scripts.Components;
 using Client.Scripts.Data;
 using Client.Scripts.Systems;
 using Client.Scripts.UnityComponents;
-using DG.Tweening;
 using Leopotam.Ecs;
 using Leopotam.Ecs.Ui.Systems;
 using UnityEngine;
@@ -36,30 +35,32 @@ namespace Client
 
 			var inputSystems = new EcsSystems(world)
 #if UNITY_EDITOR || UNITY_STANDALONE
-				.Add(new StandaloneInputSystem());
+				.Add(new StandaloneMouseInputSystem());
 #else
 				.Add(new MobileInputSystem());
 #endif
 			
+			
 			systems
 				.Add(new SaveLoadDataSystem())
+				.Add(new GameInitSystem())
+				.Add(new CameraDragSystem())
 				.Add(inputSystems)
 				.Add(guiSystems)
-				.Add(new GameTileCreateHandleSystem())
+				.Add(new GameTileHandleSystem())
 				.Add(new RewardHandleSystem())
 				.Add(new UpdatePlayerDataSystem())
 
 				// register one-frame components (order is important), for example:
-				.OneFrame<SaveDataComponent>()
+				.OneFrame<TileClickEventComponent>()
 				.OneFrame<UpdatePlayerDataComponent>()
+				.OneFrame<SaveDataComponent>()
 
 				// inject service instances here (order doesn't important), for example:
 				.Inject(sceneData)
 				.Inject(gameSettings)
 				
 				.Init();
-
-			DOTween.Init();
 		}
 
 		private void Update()

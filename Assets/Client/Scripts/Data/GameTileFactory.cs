@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Client.Scripts.UnityComponents;
 using UnityEngine;
 
@@ -10,6 +9,12 @@ namespace Client.Scripts.Data
 	{
 		[SerializeField] private TileData[] tiles;
 
+		public GameTile GetRandom()
+		{
+			var randomTile = tiles[UnityEngine.Random.Range(1, tiles.Length)];
+			return Get(randomTile.Type);
+		}
+		
 		public GameTile Get(TileContentType type)
 		{
 			var data = tiles.FirstOrDefault(t => t.Type.Equals(type));

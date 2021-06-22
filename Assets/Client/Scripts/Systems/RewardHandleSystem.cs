@@ -13,7 +13,7 @@ namespace Client.Scripts.Systems
 		
 		private EcsWorld world;
 		private EcsFilter<TileDataComponent> tileDataFilter;
-		private EcsFilter<DataComponent<PlayerDataComponent>> playerDataFilter;
+		private EcsFilter<DataComponent<PlayerData>> playerDataFilter;
 		
 		public void Run()
 		{
@@ -26,10 +26,13 @@ namespace Client.Scripts.Systems
 					continue;
 				}
 
-				tileComponent.rewardTimeLeft = tileComponent.tile.Data.Reward.RewardInterval;
+				tileComponent.rewardTimeLeft = tileComponent.tile.Data.Reward.Interval;
 
-				var popupText = LeanPool.Spawn(sceneData.PopupTextPrefab);
-				popupText.Init(tileComponent.tile.transform.position, $"+{tileComponent.tile.Data.Reward.Amount}");
+				if (tileComponent.tile.IsVisible)
+				{
+					var popupText = LeanPool.Spawn(sceneData.PopupTextPrefab);
+					popupText.Init(tileComponent.tile.transform.position, $"+{tileComponent.tile.Data.Reward.Amount}");
+				}
 
 				foreach (var idx2 in playerDataFilter)
 				{

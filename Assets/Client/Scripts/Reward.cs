@@ -8,12 +8,19 @@ namespace Client.Scripts
 	{
 		[SerializeField] private int amount;
 		[SerializeField] private RewardType type;
-		[SerializeField] private float rewardInterval;
+		[SerializeField] private float interval;
 
 		public int Amount => amount;
 		
 		public RewardType Type => type;
 		
-		public float RewardInterval => rewardInterval;
+		public float Interval => interval;
+
+		public Reward(int rewardAmount, RewardType rewardType, float rewardInterval)
+		{
+			amount = rewardAmount;
+			type = rewardType;
+			interval = rewardInterval;
+		}
 	}
 }
