@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Client.Scripts
+namespace Client.Scripts.Data
 {
 	[Serializable]
 	public class Reward
