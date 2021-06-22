@@ -1,5 +1,4 @@
-﻿using Client.Scripts.Components;
-using Client.Scripts.Systems.DataStorageSystem;
+﻿using Client.Scripts.Systems.DataStorageSystem;
 
 namespace Client.Scripts.Systems
 {
@@ -7,7 +6,7 @@ namespace Client.Scripts.Systems
 	{
 		public PlayerDataStorage()
 		{
-			Data = Load<PlayerData>(new FileSaveLoadProvider());
+			Data = Load<PlayerData>(new FileSaveLoadProvider()) ?? new PlayerData();
 		}
 	}
 }

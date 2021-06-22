@@ -8,16 +8,16 @@ namespace Client.Scripts.Systems.DataStorageSystem
 	public class PlayerData : IData
 	{
 		public int currency;
-		public List<OpenTilesData> openTiles;
+		public List<OpenTileData> openTiles;
 
 		public PlayerData()
 		{
-			openTiles = new List<OpenTilesData>();
+			openTiles = new List<OpenTileData>();
 		}
 	}
 
 	[Serializable]
-	public struct OpenTilesData
+	public struct OpenTileData
 	{
 		public Int2 position;
 		public TileContentType type;

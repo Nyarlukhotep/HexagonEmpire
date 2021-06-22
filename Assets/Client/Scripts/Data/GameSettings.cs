@@ -10,6 +10,7 @@ namespace Client.Scripts.Data
 		[SerializeField] private Vector2Int mapSize;
 		[SerializeField] private float tileRadius = 0.5f;
 		[SerializeField] private bool useAsInnerCircleTileRadius = true;
+		[SerializeField] private float autoSaveInterval = 5.0f;
 
 
 		public GameTileFactory TilesFactory => tilesFactory;
@@ -19,5 +20,7 @@ namespace Client.Scripts.Data
 		public float TileRadius => tileRadius;
 
 		public bool UseAsInnerCircleTileRadius => useAsInnerCircleTileRadius;
+
+		public float AutoSaveInterval => autoSaveInterval;
 	}
 }

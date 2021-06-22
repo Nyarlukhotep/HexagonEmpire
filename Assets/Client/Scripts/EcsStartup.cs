@@ -1,3 +1,4 @@
+using System;
 using Client.Scripts.Components;
 using Client.Scripts.Data;
 using Client.Scripts.Systems;
@@ -40,9 +41,8 @@ namespace Client
 				.Add(new MobileInputSystem());
 #endif
 			
-			
 			systems
-				.Add(new SaveLoadDataSystem())
+				.Add(new AutoSaveSystem())
 				.Add(new GameInitSystem())
 				.Add(new CameraDragSystem())
 				.Add(inputSystems)
@@ -51,6 +51,7 @@ namespace Client
 				.Add(new GameTileCreateSystem())
 				.Add(new RewardHandleSystem())
 				.Add(new UpdatePlayerDataSystem())
+				.Add(new SaveLoadDataSystem())
 
 				// register one-frame components (order is important), for example:
 				.OneFrame<TileClickEventComponent>()

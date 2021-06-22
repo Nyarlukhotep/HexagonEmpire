@@ -26,7 +26,7 @@ namespace Client.Scripts.Systems
 					
 					if (!tileCreateComponent.isExistingTile)
 					{
-						dataComponent.Data.openTiles.Add(new OpenTilesData
+						dataComponent.Data.openTiles.Add(new OpenTileData
 						{
 							position = tileCreateComponent.tile.Position,
 							type = tileCreateComponent.tile.Data.Type,

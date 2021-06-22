@@ -14,11 +14,6 @@ namespace Client.Scripts.Systems
 		
 		public void Run()
 		{
-			if (Input.GetKey(KeyCode.Escape))
-			{
-				Application.Quit();
-			}
-			
 			foreach (var idx in inputFilter)
 			{
 				ref var input = ref inputFilter.Get1(idx);
@@ -33,6 +28,11 @@ namespace Client.Scripts.Systems
 			CheckMouseInput(Input.GetMouseButton(0), InputPhase.PRESS);
 			CheckMouseInput(Input.GetMouseButtonDown(0), InputPhase.DOWN);
 			CheckMouseInput(Input.GetMouseButtonUp(0), InputPhase.UP);
+			
+			if (Input.GetKey(KeyCode.Escape))
+			{
+				Application.Quit();
+			}
 		}
 
 		private void CheckMouseInput(bool condition, InputPhase phase)

@@ -4,7 +4,7 @@ using Leopotam.Ecs;
 
 namespace Client.Scripts.Systems
 {
-	public class SaveLoadDataSystem : IEcsPreInitSystem, IEcsRunSystem, IEcsDestroySystem
+	public class SaveLoadDataSystem : IEcsPreInitSystem, IEcsRunSystem, IEcsPostDestroySystem
 	{
 		private EcsWorld world;
 		private EcsFilter<SaveDataComponent> saveDataFilter;
@@ -27,7 +27,7 @@ namespace Client.Scripts.Systems
 				Save();
 		}
 
-		public void Destroy()
+		public void PostDestroy()
 		{
 			Save();
 		}

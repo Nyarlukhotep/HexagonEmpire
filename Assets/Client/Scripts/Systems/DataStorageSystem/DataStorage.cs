@@ -4,12 +4,12 @@
 	{
 		public T Data { get; set; }
 		
-		public void Save(IDataSaveProvider provider)
+		public virtual void Save(IDataSaveProvider provider)
 		{
 			provider.Save(Data);
 		}
 
-		public T Load<T>(IDataLoadProvider provider)
+		public virtual  T Load<T>(IDataLoadProvider provider)
 		{
 			return provider == null
 				? default

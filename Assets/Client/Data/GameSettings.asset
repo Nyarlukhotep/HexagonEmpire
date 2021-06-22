@@ -16,3 +16,4 @@ MonoBehaviour:
   mapSize: {x: 25, y: 25}
   tileRadius: 0.45
   useAsInnerCircleTileRadius: 1
+  autoSaveInterval: 10

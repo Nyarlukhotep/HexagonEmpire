@@ -15,11 +15,6 @@ namespace Client.Scripts.Systems
 		
 		public void Run()
 		{
-			if (Input.GetKey(KeyCode.Escape))
-			{
-				Application.Quit();
-			}
-			
 			foreach (var idx in inputFilter)
 			{
 				ref var input = ref inputFilter.Get1(idx);
@@ -46,6 +41,11 @@ namespace Client.Scripts.Systems
 					ref var touch = ref inputFilter.Get1(idx);
 					UpdateTouchData(ref touch, inputTouch);
 				}
+			}
+			
+			if (Input.GetKey(KeyCode.Escape))
+			{
+				Application.Quit();
 			}
 		}
 		
