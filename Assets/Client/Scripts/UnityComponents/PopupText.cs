@@ -13,6 +13,7 @@ namespace Client.Scripts.UnityComponents
 
 		public void Init(Vector2 position, string text)
 		{
+			textComponent.enabled = true;
 			textComponent.SetText(text);
 			transform.position = position;
 			
@@ -27,6 +28,7 @@ namespace Client.Scripts.UnityComponents
 
 		public void OnDespawn()
 		{
+			textComponent.enabled = false;
 			textComponent.SetText(string.Empty);
 		}
 	}

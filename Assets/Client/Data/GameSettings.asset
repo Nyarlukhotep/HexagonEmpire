@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   tilesFactory: {fileID: 11400000, guid: 1fab1f0c677cc344da1684b5eec3e589, type: 2}
-  gameGridPrefab: {fileID: 4452549394083926589, guid: 374ca854c5509b9488ebfc1ef84085c4,
-    type: 3}
-  mapSize: {x: 8, y: 8}
+  mapSize: {x: 25, y: 25}
+  tileRadius: 0.45
+  useAsInnerCircleTileRadius: 1

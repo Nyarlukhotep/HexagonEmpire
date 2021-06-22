@@ -9,12 +9,22 @@ namespace Client.Scripts.Data
 	{
 		[SerializeField] private TileData[] tiles;
 
+		/// <summary>
+		/// Get random tile exclude Base Tile
+		/// </summary>
+		/// <returns>GameTile</returns>
 		public GameTile GetRandom()
 		{
-			var randomTile = tiles[UnityEngine.Random.Range(1, tiles.Length)];
+			var tilesExcludeBase = tiles.Where(t => !t.IsBaseTile).ToArray();
+			var randomTile = tilesExcludeBase[UnityEngine.Random.Range(0, tilesExcludeBase.Length)];
 			return Get(randomTile.Type);
 		}
 		
+		/// <summary>
+		/// Get tile by Type
+		/// </summary>
+		/// <param name="type">Tile Type</param>
+		/// <returns>GameTile</returns>
 		public GameTile Get(TileContentType type)
 		{
 			var data = tiles.FirstOrDefault(t => t.Type.Equals(type));

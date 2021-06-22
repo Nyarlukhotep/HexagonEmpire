@@ -26,18 +26,15 @@ namespace Client.Scripts.Systems
 					continue;
 				}
 
-				tileComponent.rewardTimeLeft = tileComponent.tile.Data.Reward.Interval;
+				tileComponent.rewardTimeLeft = tileComponent.tile.Reward.Interval;
 
-				if (tileComponent.tile.IsVisible)
-				{
-					var popupText = LeanPool.Spawn(sceneData.PopupTextPrefab);
-					popupText.Init(tileComponent.tile.transform.position, $"+{tileComponent.tile.Data.Reward.Amount}");
-				}
+				var popupText = LeanPool.Spawn(sceneData.PopupTextPrefab);
+				popupText.Init(tileComponent.tile.transform.position, $"+{tileComponent.tile.Reward.Amount}");
 
 				foreach (var idx2 in playerDataFilter)
 				{
 					ref var playerData = ref playerDataFilter.Get1(idx2);
-					playerData.Data.currency += tileComponent.tile.Data.Reward.Amount;
+					playerData.Data.currency += tileComponent.tile.Reward.Amount;
 
 					world.NewEntity().Get<UpdatePlayerDataComponent>();
 				}

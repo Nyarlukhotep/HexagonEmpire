@@ -32,8 +32,6 @@ namespace Client.Scripts.UnityComponents
 		
 		public Vector2Int Position { get; set; }
 
-		public bool IsVisible { get; protected set; }
-
 		public List<GameTile> Neighbors { get; } = new List<GameTile>();
 
 		public virtual void Init(GameTileFactory factory, TileData data)
@@ -41,12 +39,11 @@ namespace Client.Scripts.UnityComponents
 			Factory = factory;
 			Data = data;
 			
-			Close();
+			Hide();
 		}
 
-		public virtual void Close()
+		public virtual void Hide()
 		{
-			UpdateCost();
 			costText.enabled = false;
 			innerTileObject.SetActive(false);
 		}
@@ -57,9 +54,10 @@ namespace Client.Scripts.UnityComponents
 				return;
 			
 			State = TileState.Open;
+			
+			costText.enabled = false;
 			innerTileObject.SetActive(true);
 
-			costText.enabled = false;
 			UpdateReward();
 		}
 
@@ -78,39 +76,25 @@ namespace Client.Scripts.UnityComponents
 			
 			ref var tileComponent = ref World.NewEntity().Get<TileClickEventComponent>();
 			tileComponent.tile = this;
-			tileComponent.data = Data;
 		}
 
-		public virtual void UpdateCost()
+		public virtual void ShowAndUpdateCost()
 		{
 			if (State == TileState.Open)
 				return;
-			// var cost = (Data.Cost * Vector3.Distance(transform.position, Vector3.zero));
+			
 			costText.enabled = true;
-			costText.SetText(Data.Cost.ToString()); //должно зависить от удаленности от начальной точки (базы)
+			costText.SetText(Cost.ToString());
 		}
 
 		public virtual void UpdateReward()
 		{
-			var reward = Reward.Amount;//(int)(Data.Reward.Amount * Vector3.Distance(transform.position, Vector3.zero) / 10);
-			rewardText.SetText(reward.ToString()); //должно зависить от удаленности от начальной точки (базы)
+			rewardText.SetText(Reward.Amount.ToString());
 		}
 
 		public bool Equals(GameTile other)
 		{
 			return other != null && other.Position.x == Position.x && other.Position.y == Position.y;
-		}
-
-		private void OnBecameVisible()
-		{
-			IsVisible = true;
-			innerTileObject.SetActive(true);
-		}
-
-		private void OnBecameInvisible()
-		{
-			IsVisible = false;
-			innerTileObject.SetActive(false);
 		}
 	}
 }

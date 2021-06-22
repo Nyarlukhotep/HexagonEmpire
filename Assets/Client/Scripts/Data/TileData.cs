@@ -7,11 +7,14 @@ namespace Client.Scripts.Data
 	public class TileData : ScriptableObject
 	{
 		[SerializeField] private TileContentType type;
+		[SerializeField] private bool isBaseTile;
 		[SerializeField] private GameTile prefab;
 		[SerializeField] private int cost;
 		[SerializeField] private Reward reward;
 
 		public TileContentType Type => type;
+
+		public bool IsBaseTile => isBaseTile;
 
 		public GameTile Prefab => prefab;
 

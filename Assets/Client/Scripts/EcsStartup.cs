@@ -47,12 +47,14 @@ namespace Client
 				.Add(new CameraDragSystem())
 				.Add(inputSystems)
 				.Add(guiSystems)
-				.Add(new GameTileHandleSystem())
+				.Add(new GameTileClickHandleSystem())
+				.Add(new GameTileCreateSystem())
 				.Add(new RewardHandleSystem())
 				.Add(new UpdatePlayerDataSystem())
 
 				// register one-frame components (order is important), for example:
 				.OneFrame<TileClickEventComponent>()
+				.OneFrame<TileCreateComponent>()
 				.OneFrame<UpdatePlayerDataComponent>()
 				.OneFrame<SaveDataComponent>()
 

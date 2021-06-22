@@ -15,10 +15,10 @@ namespace Client.Scripts.UnityComponents
 		public override void Open()
 		{
 			State = TileState.Open;
-			Neighbors.ForEach(x => x.UpdateCost());
+			Neighbors.ForEach(x => x.ShowAndUpdateCost());
 		}
 
-		public override void Close()
+		public override void Hide()
 		{
 		}
 

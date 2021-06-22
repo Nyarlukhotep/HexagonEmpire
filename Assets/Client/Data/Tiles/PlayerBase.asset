@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: PlayerBase
   m_EditorClassIdentifier: 
   type: 1
+  isBaseTile: 1
   prefab: {fileID: -8465193035757358691, guid: c456f76a07d7be244a8a54fb8e31f170, type: 3}
   cost: 0
   reward:
-    amount: 1
+    amount: 2
     type: 0
-    interval: 5
+    interval: 2

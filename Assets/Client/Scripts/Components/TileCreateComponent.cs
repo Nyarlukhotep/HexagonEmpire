@@ -2,8 +2,10 @@
 
 namespace Client.Scripts.Components
 {
-	public struct TileClickEventComponent
+	public struct TileCreateComponent
 	{
 		public GameTile tile;
+
+		public bool isExistingTile;
 	}
 }

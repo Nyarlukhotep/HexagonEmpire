@@ -7,14 +7,17 @@ namespace Client.Scripts.Data
 	public class GameSettings : ScriptableObject
 	{
 		[SerializeField] private GameTileFactory tilesFactory;
-		[SerializeField] private GameGrid gameGridPrefab;
 		[SerializeField] private Vector2Int mapSize;
+		[SerializeField] private float tileRadius = 0.5f;
+		[SerializeField] private bool useAsInnerCircleTileRadius = true;
 
 
 		public GameTileFactory TilesFactory => tilesFactory;
 		
-		public GameGrid GameGridPrefab => gameGridPrefab;
-
 		public Vector2Int MapSize => mapSize;
+
+		public float TileRadius => tileRadius;
+
+		public bool UseAsInnerCircleTileRadius => useAsInnerCircleTileRadius;
 	}
 }
