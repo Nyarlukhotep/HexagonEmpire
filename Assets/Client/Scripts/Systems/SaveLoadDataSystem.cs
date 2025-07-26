@@ -9,11 +9,11 @@ namespace Client.Scripts.Systems
 		private EcsWorld world;
 		private EcsFilter<SaveDataComponent> saveDataFilter;
 
-		private PlayerDataStorage playerDataStorage;
+		private IDataStorage<PlayerData> playerDataStorage;
 		
 		public void PreInit()
 		{
-			playerDataStorage = new PlayerDataStorage();
+			playerDataStorage = new PlayerDataStorage(new FileSaveLoadProvider());
 
 			ref var entity = ref world.NewEntity().Get<DataComponent<PlayerData>>();
 			entity.Data = playerDataStorage.Data;
@@ -34,7 +34,7 @@ namespace Client.Scripts.Systems
 
 		private void Save()
 		{
-			playerDataStorage.Save(new FileSaveLoadProvider());
+			playerDataStorage.Save();
 		}
 	}
 }

@@ -28,8 +28,7 @@ namespace Client.Scripts.Systems
 
 				tileComponent.rewardTimeLeft = tileComponent.tile.Reward.Interval;
 
-				var popupText = LeanPool.Spawn(sceneData.PopupTextPrefab);
-				popupText.Init(tileComponent.tile.transform.position, $"+{tileComponent.tile.Reward.Amount}");
+				SpawnIncomePopupText(tileComponent);
 
 				foreach (var idx2 in playerDataFilter)
 				{
@@ -39,6 +38,12 @@ namespace Client.Scripts.Systems
 					world.NewEntity().Get<UpdatePlayerDataComponent>();
 				}
 			}
+		}
+
+		private void SpawnIncomePopupText(TileDataComponent tileComponent)
+		{
+			var popupText = LeanPool.Spawn(sceneData.PopupTextPrefab);
+			popupText.Init(tileComponent.tile.transform.position, $"+{tileComponent.tile.Reward.Amount}");
 		}
 	}
 }

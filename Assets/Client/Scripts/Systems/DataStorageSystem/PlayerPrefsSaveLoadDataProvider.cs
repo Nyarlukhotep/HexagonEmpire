@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Client.Scripts.Systems.DataStorageSystem
 {
-	public class PPSaveLoadProvider : IDataSaveProvider, IDataLoadProvider
+	public class PlayerPrefsSaveLoadDataProvider : ISaveLoadDataProvider
 	{
 		private const string DATA_NAME = "data";
 		
