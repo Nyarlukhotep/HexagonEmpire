@@ -17,6 +17,6 @@ MonoBehaviour:
   prefab: {fileID: -8465193035757358691, guid: c456f76a07d7be244a8a54fb8e31f170, type: 3}
   cost: 0
   reward:
-    amount: 2
+    amount: 2000
     type: 0
     interval: 2

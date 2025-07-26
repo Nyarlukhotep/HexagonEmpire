@@ -13,7 +13,9 @@
 		Default,
 		PlayerBase,
 		Forest,
-		Stone
+		Stone,
+		Sand,
+		Water
 	}
 
 	public enum TileState

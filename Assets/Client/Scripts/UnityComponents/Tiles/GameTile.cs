@@ -13,6 +13,7 @@ namespace Client.Scripts.UnityComponents
 	public abstract class GameTile : MonoBehaviour, IPointerClickHandler, IEquatable<GameTile>
 	{
 		[SerializeField] protected GameObject innerTileObject;
+		[SerializeField] protected GameObject tileOutlineObject;
 		[SerializeField] protected TextMeshPro costText;
 		[SerializeField] protected TextMeshPro rewardText;
 		
@@ -57,6 +58,7 @@ namespace Client.Scripts.UnityComponents
 			
 			costText.enabled = false;
 			innerTileObject.SetActive(true);
+			tileOutlineObject.SetActive(false);
 
 			UpdateReward();
 		}

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Default
   m_EditorClassIdentifier: 
   type: 0
+  isBaseTile: 0
   prefab: {fileID: 4034127101636013559, guid: d11f835c5b62a0d45a0644437391ad9d, type: 3}
   cost: 5
   reward:
-    amount: 1
+    amount: 3
     type: 0
     interval: 3

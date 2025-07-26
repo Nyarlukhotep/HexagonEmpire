@@ -52,12 +52,15 @@ namespace Client.Scripts.Systems
 		
 		private void GenerateGrid()
 		{
-			var unitLength = gameSettings.UseAsInnerCircleTileRadius
-				? gameSettings.TileRadius / innerRadius
-				: gameSettings.TileRadius;
+			var tileSizeX = gameSettings.UseAsInnerCircleTileRadius
+				? gameSettings.TileRadiusX / innerRadius
+				: gameSettings.TileRadiusX;
+			var tileSizeY = gameSettings.UseAsInnerCircleTileRadius
+				? gameSettings.TileRadiusY / innerRadius
+				: gameSettings.TileRadiusY;
 
-			offsetX = unitLength * Mathf.Sqrt(3);
-			offsetY = unitLength * 1.5f;
+			offsetX = tileSizeX;// * Mathf.Sqrt(3);
+			offsetY = tileSizeY;
 
 			var halfWidth = gameSettings.MapSize.x / 2;
 			halfWidth = (halfWidth & 1) == 0 ? halfWidth : halfWidth - 1;

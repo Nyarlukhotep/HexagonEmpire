@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilesFactory: {fileID: 11400000, guid: 1fab1f0c677cc344da1684b5eec3e589, type: 2}
   mapSize: {x: 25, y: 25}
-  tileRadius: 0.45
+  tileRadiusX: 2.2
+  tileRadiusY: 1.7
   useAsInnerCircleTileRadius: 1
   autoSaveInterval: 10

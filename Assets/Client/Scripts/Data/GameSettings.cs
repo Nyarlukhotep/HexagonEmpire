@@ -1,5 +1,4 @@
-﻿using Client.Scripts.UnityComponents;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client.Scripts.Data
 {
@@ -8,7 +7,8 @@ namespace Client.Scripts.Data
 	{
 		[SerializeField] private GameTileFactory tilesFactory;
 		[SerializeField] private Vector2Int mapSize;
-		[SerializeField] private float tileRadius = 0.5f;
+		[SerializeField] private float tileRadiusX = 0.5f;
+		[SerializeField] private float tileRadiusY = 0.5f;
 		[SerializeField] private bool useAsInnerCircleTileRadius = true;
 		[SerializeField] private float autoSaveInterval = 5.0f;
 
@@ -17,7 +17,8 @@ namespace Client.Scripts.Data
 		
 		public Vector2Int MapSize => mapSize;
 
-		public float TileRadius => tileRadius;
+		public float TileRadiusX => tileRadiusX;
+		public float TileRadiusY => tileRadiusY;
 
 		public bool UseAsInnerCircleTileRadius => useAsInnerCircleTileRadius;
 

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   type: 2
+  isBaseTile: 0
   prefab: {fileID: 8261932905041134065, guid: 650ca22dc9ab26f44a97d79aaa48997f, type: 3}
   cost: 20
   reward:
-    amount: 2
-    type: 0
+    amount: 20
+    type: 1
     interval: 8

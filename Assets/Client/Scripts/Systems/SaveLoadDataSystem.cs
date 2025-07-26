@@ -1,6 +1,8 @@
-﻿using Client.Scripts.Components;
+﻿using System;
+using Client.Scripts.Components;
 using Client.Scripts.Systems.DataStorageSystem;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client.Scripts.Systems
 {
@@ -34,7 +36,14 @@ namespace Client.Scripts.Systems
 
 		private void Save()
 		{
-			playerDataStorage.Save();
+			try
+			{
+				playerDataStorage.Save();
+			}
+			catch (Exception e)
+			{
+				Debug.LogError($"Save error: {e}");
+			}
 		}
 	}
 }
