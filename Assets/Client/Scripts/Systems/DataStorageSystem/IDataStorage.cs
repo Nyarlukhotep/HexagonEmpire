@@ -4,8 +4,8 @@
 	{
 		T Data { get; set; }
 		
-		void Save(IDataSaveProvider provider);
+		void Save();
 		
-		T Load<T>(IDataLoadProvider provider);
+		T Load<T>();
 	}
 }

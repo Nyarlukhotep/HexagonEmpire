@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Leopotam.Ecs.Types;
 
 namespace Client.Scripts.Systems.DataStorageSystem
 {
@@ -13,12 +12,5 @@ namespace Client.Scripts.Systems.DataStorageSystem
 		{
 			openTiles = new List<OpenTileData>();
 		}
-	}
-
-	public struct OpenTileData
-	{
-		public Int2 position;
-		public TileContentType type;
-		public int reward;
 	}
 }

@@ -18,7 +18,7 @@ namespace Client.Scripts.Systems
 		private float offsetX;
 		private float offsetY;
 		private readonly float innerRadius = Mathf.Sqrt(3) / 2;
-		private Dictionary<Vector2Int, GameTile> Tiles { get; } = new Dictionary<Vector2Int, GameTile>();
+		private Dictionary<Vector2Int, GameTile> Tiles { get; } = new ();
 		private Transform gridParentTransform;
 		
 		public void Init()
@@ -77,7 +77,7 @@ namespace Client.Scripts.Systems
 
 						dataComponent.Data.openTiles.ForEach(t =>
 						{
-							if (t.position.X != x || t.position.Y != y) 
+							if (t.position.x != x || t.position.y != y) 
 								return;
 							
 							tile = gameSettings.TilesFactory.Get(t.type);
@@ -89,10 +89,9 @@ namespace Client.Scripts.Systems
 						
 						if (tile == null)
 						{
-							tile = (x == 0 && y == 0)
+							tile = x == 0 && y == 0
 								? gameSettings.TilesFactory.Get(TileContentType.PlayerBase)
 								: gameSettings.TilesFactory.GetRandom();
-							
 						}
 						
 						tile.transform.position = hexPosition;

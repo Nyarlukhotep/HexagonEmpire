@@ -2,18 +2,25 @@
 {
 	public abstract class DataStorage<T> : IDataStorage<T> where T: class, IData
 	{
-		public T Data { get; set; }
+		protected readonly ISaveLoadDataProvider _saveLoadProvider;
 		
-		public virtual void Save(IDataSaveProvider provider)
+		public T Data { get; set; }
+
+		protected DataStorage(ISaveLoadDataProvider saveLoadProvider)
 		{
-			provider.Save(Data);
+			_saveLoadProvider = saveLoadProvider;
+		}
+		
+		public virtual void Save()
+		{
+			_saveLoadProvider.Save(Data);
 		}
 
-		public virtual  T Load<T>(IDataLoadProvider provider)
+		public virtual T Load<T>()
 		{
-			return provider == null
+			return _saveLoadProvider == null
 				? default
-				: provider.Load<T>();
+				: _saveLoadProvider.Load<T>();
 		}
 	}
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Client.Scripts.Systems.DataStorageSystem
 {
-	public class FileSaveLoadProvider : IDataSaveProvider, IDataLoadProvider
+	public sealed class FileSaveLoadProvider : ISaveLoadDataProvider
 	{
 		private string DataFolder => Application.persistentDataPath + "/Saves";
 		

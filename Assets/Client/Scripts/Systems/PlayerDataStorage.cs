@@ -2,11 +2,11 @@
 
 namespace Client.Scripts.Systems
 {
-	public class PlayerDataStorage : DataStorage<PlayerData>
+	public sealed class PlayerDataStorage : DataStorage<PlayerData>
 	{
-		public PlayerDataStorage()
+		public PlayerDataStorage(ISaveLoadDataProvider saveLoadDataProvider) : base(saveLoadDataProvider)
 		{
-			Data = Load<PlayerData>(new FileSaveLoadProvider()) ?? new PlayerData();
+			Data = saveLoadDataProvider.Load<PlayerData>() ?? new PlayerData();
 		}
 	}
 }
