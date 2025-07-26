@@ -8,9 +8,14 @@ namespace Client.Scripts.Systems.DataStorageSystem
 	public sealed class FileSaveLoadProvider : ISaveLoadDataProvider
 	{
 		private string DataFolder => Application.persistentDataPath + "/Saves";
+		private bool inProcess;
 		
-		public void Save<T>(T data)
+		public async void Save<T>(T data)
 		{
+			if (inProcess) return;
+			
+			inProcess = true;
+			
 			var dataAsJson = JsonConvert.SerializeObject(data);
 			var filePath = Path.Combine(DataFolder, $"{typeof(T).Name}.dta");
 
@@ -19,10 +24,13 @@ namespace Client.Scripts.Systems.DataStorageSystem
 #endif			
             
 			var folder = Path.GetDirectoryName(filePath);
+			
 			if (!Directory.Exists(folder))
 				Directory.CreateDirectory(folder);
 
-			File.WriteAllText(filePath, dataAsJson);
+			await File.WriteAllTextAsync(filePath, dataAsJson);
+
+			inProcess = false;
 		}
 
 		public T Load<T>()
